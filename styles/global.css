@@ -1,6 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: Quicksand;
     src: url(../assets/fonts/Quicksand/Quicksand-SemiBold.ttf);
     font-weight: 600;
 }
 
+@font-face {
+    font-family: Quicksand;
+    src: url(../assets/fonts/Quicksand/Quicksand-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../assets/fonts/Montserrat/Montserrat-SemiBold.ttf);
+    font-weight: 600;
+}
+
+nav {
+    background-color: #850E35;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #850E35;
+    padding: 1rem 2rem;
+}
+
+.logo img {
+    width: 16.6875rem;
+    height: 11.25rem;
+    aspect-ratio: 89/60;
+}
+
+.cart-and-searchbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+#cart {
+    width: 2rem;
+    height: 2rem;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    background-color: #ffdcdc;
+    border: none;
+    border-radius: 0.625rem;
+    padding: 6px 36px 6px 16px;
+    font-family: Montserrat, sans-serif;
+    font-size: 1.25rem;
+    outline: none;
+    width: 28.0625rem;
+    height: 3.3125rem;
+}
+
+#search::placeholder {
+    color: rgba(0, 0, 0, 0.35);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.0375rem;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    font-family: Quicksand;
+    font-weight: 600;
+    font-size: 10px;
+    padding: 20px;
+    color: #ffdcdc;
+    border-top: 1px solid #ffdcdc;
+}
+
+@media (min-width: 1000px) {
+    :root {
+        font-size: 12pt;
+    }
+}
