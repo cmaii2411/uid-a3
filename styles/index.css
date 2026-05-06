@@ -1,0 +1,110 @@
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
+    width: 20.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-left: 3rem;
+}
+
+.hero-text h1 {
+    color: #443932;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.25rem; /* 108.333% */
+    letter-spacing: 0.27rem;
+}
+
+.hero-text h1 span {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.hero-text p {
+    font-family: var(--font-body);
+    color: rgba(90, 75, 64, 0.98);
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6875rem; 
+    letter-spacing: 0.1375rem;
+}
+
+.hero-img {
+    position: relative;
+    z-index: 1;
+    max-height: 100vh;
+    width: auto;
+    margin-left: auto;
+}
+
+.deco-footprint,
+.deco-paw {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.deco-footprint {
+    top: 20%;
+    left: 10%;
+    width: 40rem;
+    height: 40rem;
+    transform: rotate(-2.411deg);
+    aspect-ratio: 1/1;
+    opacity: 60%;
+}
+
+.deco-paw {
+    width: 6.50681rem;
+    height: 6.50681rem;
+    transform: rotate(-34.899deg);
+    aspect-ratio: 1/1;
+    opacity: 60%;
+}
+
+/* ===== BANNER ===== */
+
+.banner {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--accent-color);
+    padding: 0.75rem 0;
+    width: 100vw;
+    height: 4rem;
+}
+
+.banner-track {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    animation: marquee 15s linear infinite;
+}
+
+.banner-track span {
+    color: #850E35;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* keyframes defines steps of animation */
+@keyframes marquee {
+    from { transform: translateX(0%); }
+    to   { transform: translateX(-50%); }
+}
+
