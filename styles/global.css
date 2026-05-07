@@ -11,7 +11,7 @@
     --font-body: Montserrat, sans-serif;
 
     /* Spacing */
-    --main-padding: 1.25rem 2rem;
+    --main-padding: 2rem 2rem;
     --section-gap: 2rem;
 
     /* Borders & radius */
@@ -59,6 +59,33 @@ body {
     font-family: Montserrat;
     src: url(../assets/fonts/Montserrat/Montserrat-SemiBold.ttf);
     font-weight: 600;
+}
+
+h1 {
+    color: #443932;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.25rem; /* 108.333% */
+    letter-spacing: 0.27rem;
+}
+
+h3 {
+    color: #850E35;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4375rem; /* 115% */
+    letter-spacing: 0.0375rem;
+}
+
+p {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2.5rem; 
+    color: #000;
 }
 
 /* ===== NAV / HEADER ===== */
@@ -184,5 +211,5 @@ nav {
 /* ===== MOBILE OVERRIDES ===== */
 
 @media (max-width: 1023px) {
-    /* mobile nav styles go here after desktop is done */
+    
 }

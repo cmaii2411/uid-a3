@@ -1,4 +1,5 @@
 /* ===== NAV BAR ====== */
+
 const navHTML = `
 <nav>
     <div class="header">
