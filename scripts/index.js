@@ -31,8 +31,10 @@ if (grid) {
 
 /* CAROUSEL */
 
+/* CAROUSEL */
+
 const carouselSlides = [
-    { name: 'Cat Wall',      img: 'catwall.png' },
+    { name: 'Cat Wall',      img: 'catwall-slider.png' },
     { name: 'Cat Feeder',    img: 'feeder.png' },
     { name: 'Cat Staircase', img: 'stair-co.png' },
 ];
@@ -55,15 +57,33 @@ if (carouselTrack) {
     `).join('');
 
     function goTo(index) {
-        const offset = carouselTrack.parentElement.offsetWidth / 2
-                     - slideWidth / 2
-                     - index * slideWidth;
+    const slides = carouselTrack.querySelectorAll('.carousel-slide');
+    const dots   = carouselDots.querySelectorAll('.dot');
+    const n      = slides.length;
 
-        carouselTrack.style.transform = `translateX(${offset}px)`;
-       
-        current = index;
+    slides.forEach((s, i) => {
+        const wasClass = s.classList.contains('prev') ? 'prev'
+                       : s.classList.contains('next') ? 'next' : 'active';
+        const newClass = i === index               ? 'active'
+                       : i === (index - 1 + n) % n ? 'prev' : 'next';
+
+        if ((wasClass === 'prev' && newClass === 'next') ||
+            (wasClass === 'next' && newClass === 'prev')) {
+            s.style.transition = 'none';
+            s.classList.remove('active', 'prev', 'next');
+            s.classList.add(newClass);
+            s.getBoundingClientRect();
+            s.style.transition = '';
+        } else {
+            s.classList.remove('active', 'prev', 'next');
+            s.classList.add(newClass);
+        }
+    });
+
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    current = index;
     }
 
-    goTo(0);
+
     setInterval(() => goTo((current + 1) % carouselSlides.length), 3500);
 }
