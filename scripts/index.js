@@ -31,8 +31,6 @@ if (grid) {
 
 /* CAROUSEL */
 
-/* CAROUSEL */
-
 const carouselSlides = [
     { name: 'Cat Wall',      img: 'catwall-slider.png' },
     { name: 'Cat Feeder',    img: 'feeder.png' },
@@ -83,7 +81,86 @@ if (carouselTrack) {
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
     current = index;
     }
-
-
     setInterval(() => goTo((current + 1) % carouselSlides.length), 3500);
+}
+
+/* REVIEW */
+const VISIBLE = 4;
+const TOTAL   = 10;
+const reviewContainer = document.getElementById('review-autoslide');
+
+if (reviewContainer) {
+    const cardHTML = `
+        <div class="review-card">
+            <div class="review-card-inner">
+                <div class="review-header">
+                    <img class="review-avatar" src="${basePath}assets/images/review.png" alt="Customer">
+                    <div>
+                        <p class="review-name">Happy Customer</p>
+                        <img class="review-rating" src="${basePath}assets/images/rating.svg" alt="5 stars">
+                    </div>
+                </div>
+                <p class="review-text">"My cat loves it!"</p>
+            </div>
+        </div>`;
+
+    // Clone first and last VISIBLE cards at each end for the seamless wrap
+    const cards = Array(TOTAL).fill(cardHTML);
+    const extended = [
+        ...cards.slice(-VISIBLE),
+        ...cards,
+        ...cards.slice(0, VISIBLE),
+    ];
+
+    const viewport = document.createElement('div');
+    viewport.className = 'review-viewport';
+
+    const track = document.createElement('div');
+    track.className = 'review-track';
+    track.innerHTML = extended.join('');
+
+    viewport.appendChild(track);
+    reviewContainer.appendChild(viewport);
+
+    const dotsEl = document.createElement('div');
+    dotsEl.className = 'review-dots';
+    dotsEl.innerHTML = cards.map((_, i) =>
+        `<span class="review-dot${i === 0 ? ' active' : ''}"></span>`
+    ).join('');
+    reviewContainer.appendChild(dotsEl);
+
+    let trackPos = VISIBLE;
+    let moving   = false;
+
+    function cardWidth() { return viewport.offsetWidth / VISIBLE; }
+
+    function setPos(pos, animate) {
+        track.style.transition = animate ? 'transform 0.6s ease' : 'none';
+        track.style.transform  = `translateX(${-pos * cardWidth()}px)`;
+        trackPos = pos;
+    }
+
+    function updateDots() {
+        const idx = (trackPos - VISIBLE + TOTAL) % TOTAL;
+        dotsEl.querySelectorAll('.review-dot').forEach((d, i) =>
+            d.classList.toggle('active', i === idx)
+        );
+    }
+
+    setPos(VISIBLE, false);
+
+    track.addEventListener('transitionend', () => {
+        moving = false;
+        if (trackPos >= VISIBLE + TOTAL) setPos(VISIBLE, false);
+        if (trackPos < VISIBLE)          setPos(VISIBLE + TOTAL - 1, false);
+    });
+
+    setInterval(() => {
+        if (moving) return;
+        moving = true;
+        setPos(trackPos + 1, true);
+        updateDots();
+    }, 3000);
+
+    window.addEventListener('resize', () => setPos(trackPos, false));
 }
