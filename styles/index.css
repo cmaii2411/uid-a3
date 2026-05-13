@@ -380,9 +380,9 @@
     z-index: 0;
 }
 
-#review-background,
-#review-deco {
-    position: absolute;
+#review-background {
+    margin-top: 5rem;
+    position: relative;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -398,6 +398,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .review-viewport {
@@ -489,3 +490,9 @@
     border-radius: 0.5rem;
 }
 
+.review .deco-footprint {
+    scale: 0.8;
+    top: -30%;
+    right: 200%;
+    opacity: 60%;
+}

@@ -28,3 +28,21 @@ const navHTML = `
 
 document.getElementById('nav-placeholder').innerHTML = navHTML;
 
+const footerHTML = `
+<footer>
+        <div class="left-footer">
+            <img src="assets/images/logo 1.png">
+            <div class="footer-contact">
+                <img src="assets/images/fb.svg">
+                <img src="assets/images/ig.svg">
+            </div>
+        </div>
+
+        <div class="right-footer">
+            <h3>Join our community</h3>
+            <input type="text" name="email" id="email" placeholder="Your Email">
+            <button class="btn-primary">Submit</button>
+        </div>
+</footer>
+    `
+document.getElementById('footer-placeholder').innerHTML = footerHTML;
