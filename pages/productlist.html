@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krispet</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/productlist.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <!-- Populated by JS -->
+    <div id="page-header"></div>
+
+    <main class="product-page">
+
+        <!-- FILTER SIDEBAR -->
+        <aside class="filter-panel">
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <span>AVAILABILITY</span>
+                    <button>−</button>
+                </div>
+                <div class="filter-group-body">
+                    <label><input type="checkbox" value="in-stock"> In Stock</label>
+                    <label><input type="checkbox" value="out-of-stock"> Out of Stock</label>
+                    <button class="filter-clear">Clear</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <span>COLOR</span>
+                    <button>−</button>
+                </div>
+                <div class="filter-group-body" id="color-filters">
+                    <label><input type="checkbox" value="blue">Blue</label>
+                    <label><input type="checkbox" value="orange">Orange</label>
+                    <label><input type="checkbox" value="green">Green</label>
+                    <label><input type="checkbox" value="beige">Beige</label>
+                    <button class="filter-clear">Clear</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- PRODUCT AREA -->
+        <section class="product-area">
+            <div class="product-area-toolbar">
+                <label class="sort-label">
+                    Sort by
+                    <select id="sort-select">
+                        <option value="relevance">Relevance</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- Product grid — populated by JS -->
+            <div class="product-grid" id="product-grid"></div>
+        </section>
+
+    </main>
+
+    <!-- BOTTOM FEATURE SLIDER — same on both modes -->
+    <section class="feature-slider">
+        <div class="feature-slider-track" id="feature-slider-track"></div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>const basePath = '../';</script>
+    <script src="../scripts/productlist.js"></script>
+    <script src="../scripts/global.js"></script>
+</body>
+</html>

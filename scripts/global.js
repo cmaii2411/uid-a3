@@ -31,10 +31,10 @@ document.getElementById('nav-placeholder').innerHTML = navHTML;
 const footerHTML = `
 <footer>
         <div class="left-footer">
-            <img src="assets/images/logo 1.png">
+            <img src="${basePath}assets/images/logo 1.png">
             <div class="footer-contact">
-                <img src="assets/images/fb.svg">
-                <img src="assets/images/ig.svg">
+                <img src="${basePath}assets/images/fb.svg">
+                <img src="${basePath}assets/images/ig.svg">
             </div>
         </div>
 
