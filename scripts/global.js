@@ -28,6 +28,19 @@ const navHTML = `
 
 document.getElementById('nav-placeholder').innerHTML = navHTML;
 
+/* SEARCH — navigate to productlist with ?q= on Enter or icon click */
+const searchInput = document.getElementById('search');
+const searchIcon  = document.querySelector('.search-icon');
+
+function doSearch() {
+    const q = searchInput.value.trim();
+    if (!q) return;
+    window.location.href = `${basePath}pages/productlist.html?q=${encodeURIComponent(q)}`;
+}
+
+searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+searchIcon.addEventListener('click', doSearch);
+
 const footerHTML = `
 <footer>
         <div class="left-footer">

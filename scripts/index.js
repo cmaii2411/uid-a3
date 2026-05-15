@@ -11,18 +11,18 @@ if (track) {
 /* COLLECTIONS HTML RENDER */
 
 const collections = [
-    { name: 'Cat Walls', img: 'catwall-co.png' },
-    { name: 'Scratching Board', img: 'scratcher-co.png' },
-    { name: 'Cat Staircase', img: 'stair-co.png' },
-    { name: 'Curvynest', img: 'curve-co.png' },
-    { name: 'Anti-Ant Raised Cat Feeder', img: 'feeder-co.png' },
-    { name: 'Cat Tail Teaser', img: 'teaser.png' },
+    { name: 'Cat Walls',                  img: 'catwall-co.png',   query: 'cat-walls' },
+    { name: 'Scratching Board',           img: 'scratcher-co.png', query: 'scratching-board' },
+    { name: 'Cat Staircase',              img: 'stair-co.png',     query: 'cat-staircase' },
+    { name: 'Curvynest',                  img: 'curve-co.png',     query: 'curvynest' },
+    { name: 'Anti-Ant Raised Cat Feeder', img: 'feeder-co.png',    query: 'raised-feeder' },
+    { name: 'Cat Tail Teaser',            img: 'teaser.png',        query: 'tail-teaser' },
 ];
 
 const grid = document.querySelector('.collections');
 if (grid) {
     grid.innerHTML = collections.map(c => `
-        <div class="collection-card">
+        <div class="collection-card" onclick="window.location.href='pages/productlist.html?collection=${c.query}'">
             <img src="assets/images/${c.img}" alt="${c.name}">
             <h3>${c.name}</h3>
         </div>
