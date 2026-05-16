@@ -19,15 +19,26 @@ const pageHeader = document.getElementById('page-header');
 if (searchQ) {
     pageHeader.innerHTML = `
         <div class="search-header">
-            Results for "<span>${searchQ}</span>"
+            Results for “<span>${searchQ}</span>”
+            <img class="deco-paw-1" src="${basePath}assets/images/pink-paw.png">
+            <img class="deco-paw-2" src="${basePath}assets/images/pink-paw.png">
+            <img class="deco-paw-3" src="${basePath}assets/images/pink-paw.png">
         </div>
     `;
 } else {
     pageHeader.innerHTML = `
         <div class="collection-header">
-            <p class="breadcrumb"><a href="${basePath}index.html">Home</a> › Cat Walls</p>
-            <h1>Cat Walls</h1>
-            <div class="collection-header-underline"></div>
+            <div class="collection-header-text">
+                <p class="breadcrumb"><a href="${basePath}index.html">Home</a> › Cat Walls</p>
+                <h1>Cat Walls</h1>
+                <div class="collection-header-underline"></div>
+                <p class="collection-description">Modular cat climbing wall offers customizable accessories to maximize feline enrichment and space efficiency in small living areas.</p>
+            </div>
+
+            <div class="collection-image">
+                <img src="${basePath}assets/images/header-deco.png">
+                <img src="${basePath}assets/images/header-deco2.png">
+            </div>
         </div>
     `;
 }
