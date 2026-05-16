@@ -9,14 +9,14 @@ const navHTML = `
         <div class="cart-and-searchbar">
             <img id="cart" src="${basePath}assets/icons/fi-rr-shopping-bag.svg" alt="cart">
             <div class="search-wrapper">
-                <input type="text" id="search" name="search" placeholder="Search Cat Wall">
+                <input type="text" id="search" name="search" placeholder="Search Cat Climbing Wall">
                 <img src="${basePath}assets/icons/fi-rr-search-pink.svg" class="search-icon" alt="search">
             </div>
         </div>
     </div>
     <div class="categories">
         <h2>CAT WALLS</h2>
-        <h2>STAIRCASE</h2>
+        <h2>STAIRCASE</h2
         <h2>RAISED FEEDER</h2>
         <h2>CURVYNEST</h2>
         <h2>TAIL TEASER</h2>
@@ -38,7 +38,7 @@ function doSearch() {
     window.location.href = `${basePath}pages/productlist.html?q=${encodeURIComponent(q)}`;
 }
 
-searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); } );
 searchIcon.addEventListener('click', doSearch);
 
 const footerHTML = `
