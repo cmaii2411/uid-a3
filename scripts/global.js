@@ -16,7 +16,7 @@ const navHTML = `
     </div>
     <div class="categories">
         <h2>CAT WALLS</h2>
-        <h2>STAIRCASE</h2
+        <h2>STAIRCASE</h2>
         <h2>RAISED FEEDER</h2>
         <h2>CURVYNEST</h2>
         <h2>TAIL TEASER</h2>
