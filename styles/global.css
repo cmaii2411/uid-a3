@@ -79,6 +79,12 @@ h3 {
     line-height: 1.4375rem; /* 115% */
     letter-spacing: 0.0375rem;
 }
+h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #443932;
+}
 
 p {
     font-family: var(--font-body);
@@ -98,7 +104,7 @@ nav {
     display: flex;
     align-items: center;
     background-color: var(--brand-color);
-    padding: var(--main-padding);
+    padding: 0 2rem;
 }
 
 .logo img {
@@ -169,6 +175,8 @@ nav {
 }
 
 .categories h2 {
+    color: #F5F5F5;
+    font-size: 1rem;
     background: linear-gradient(#EE69835E, #EE69835E) no-repeat left center;
     background-size: 0% 100%;
     transition: background-size 0.4s ease;
@@ -284,7 +292,7 @@ footer {
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.8rem;
-    top: 14%;
+    top: 9%;
     right: 3%;
 }
 
@@ -648,8 +656,35 @@ footer {
     cursor: pointer;
 }
 
+/* ===== ANIMATIONS ===== */
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(1.5rem); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-load-up {
+    opacity: 0;
+    animation: fade-up 0.65s ease forwards;
+}
+.anim-load-up.delay-1 { animation-delay: 0.18s; }
+.anim-load-up.delay-2 { animation-delay: 0.36s; }
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-reveal.delay-1 { transition-delay: 0.15s; }
+.scroll-reveal.delay-2 { transition-delay: 0.3s; }
+.scroll-reveal.delay-3 { transition-delay: 0.45s; }
+
 /* ===== MOBILE OVERRIDES ===== */
 
 @media (max-width: 1023px) {
-    
+
 }

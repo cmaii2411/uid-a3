@@ -1,7 +1,7 @@
 /* ===== BREADCRUMB ===== */
 
 #directory {
-    padding: var(--main-padding);
+    padding: 2rem 2rem 0 2rem;
     font-family: var(--font-heading);
     font-size: 0.85rem;
     color: var(--brand-color);

@@ -18,7 +18,7 @@ const pageHeader = document.getElementById('page-header');
 
 if (searchQ) {
     pageHeader.innerHTML = `
-        <div class="search-header">
+        <div class=”search-header anim-load-up”>
             Results for “<span>${searchQ}</span>”
             <img class="deco-paw-1" src="${basePath}assets/images/pink-paw.png">
             <img class="deco-paw-2" src="${basePath}assets/images/pink-paw.png">
@@ -30,8 +30,8 @@ if (searchQ) {
         <div class="collection-header">
             <div class="collection-header-text">
                 <p class="breadcrumb"><a href="${basePath}index.html">Home</a> › Cat Walls</p>
-                <h1>Cat Walls</h1>
-                <div class="collection-header-underline"></div>
+                <h1 class="anim-load-up" >Cat Walls</h1>
+                <div class="collection-header-underline" ></div>
                 <p class="collection-description">Modular cat climbing wall offers customizable accessories to maximize feline enrichment and space efficiency in small living areas.</p>
             </div>
 
@@ -72,11 +72,16 @@ if (grid) {
                     <span>${c.rating.toFixed(1)} (${c.reviews})</span>
                 </div>
                 <p class="product-card-price">${c.price}</p>
-                <a class="btn-view-product" href="${basePath}pages/product.html">VIEW PRODUCT</a>
+                <a class="btn-view-product" href="${basePath}pages/product.html?id=${c.color}">VIEW PRODUCT</a>
             </div>
         `).join('');
-}
 
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = `${basePath}pages/product.html?id=${card.dataset.color}`;
+        });
+    });
+}
 /* ===== COLOR FILTER ===== */
 
 const colorCheckboxes = document.querySelectorAll('#color-filters input[type="checkbox"]');

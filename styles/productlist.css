@@ -259,6 +259,13 @@ aside {
     border: 1px solid var(--light-pink);
     border-radius: var(--pic-border-radius);
     padding: 0.5rem;
+    transition: all 0.18s ease;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 14px rgba(169, 139, 118, 0.22);
 }
 
 .product-card[hidden] {
