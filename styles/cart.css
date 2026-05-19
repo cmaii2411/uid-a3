@@ -1,0 +1,135 @@
+/* ===== PAGE LAYOUT ===== */
+
+.cart-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: var(--main-padding);
+    max-width: 55rem;
+    margin: 0 auto;
+}
+
+/* ===== HEADING ROW ===== */
+
+.cart-heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-page-title {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.cart-page-title h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+#cart-page-qty {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+/* ===== ITEMS CONTAINER ===== */
+
+.cart-page-items {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--light-pink);
+    border-radius: var(--pic-border-radius);
+    padding: 0 1.5rem;
+}
+
+/* ===== ITEM ROW ===== */
+
+.cart-page-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--light-pink);
+}
+
+.cart-page-item:last-child {
+    border-bottom: none;
+}
+
+.cart-page-item > img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: var(--pic-border-radius);
+    flex-shrink: 0;
+}
+
+.cart-page-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.cart-page-item-name {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #443932;
+    text-decoration: underline;
+}
+
+.cart-page-item-size {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.cart-page-change-size {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--brand-color);
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.cart-page-change-size:hover {
+    text-decoration: underline;
+}
+
+.cart-page-item-price {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #443932;
+    flex-shrink: 0;
+    min-width: 6rem;
+    text-align: right;
+}
+
+/* ===== FOOTER (COUPON + CHECKOUT) ===== */
+
+.cart-page-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-self: flex-end;
+    width: 22rem;
+}
+
+.cart-page-coupon {
+    background: var(--button-color);
+    border-radius: var(--pic-border-radius);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}

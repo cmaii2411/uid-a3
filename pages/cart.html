@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krispet — Cart</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/cart.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div id="cart-panel"></div>
+
+    <main class="cart-page">
+        <div class="cart-heading-row">
+            <div class="cart-page-title">
+                <h1>Cart</h1>
+                <span id="cart-page-qty"></span>
+            </div>
+            <a class="btn-primary" href="../pages/productlist.html">SHOP ALL</a>
+        </div>
+
+        <div class="cart-page-items" id="cart-page-items"></div>
+
+        <div class="cart-page-footer">
+            <div class="cart-page-coupon">
+                <p class="cart-coupon-label">Coupon</p>
+                <div class="cart-coupon-row">
+                    <input type="text" placeholder="Add Discount Code">
+                    <button class="btn-apply">APPLY</button>
+                </div>
+            </div>
+            <button class="btn-checkout">
+                <span>CHECKOUT</span>
+                <span id="cart-page-total"></span>
+            </button>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>const basePath = '../';</script>
+    <script src="../scripts/cart.js"></script>
+    <script src="../scripts/cart-page.js"></script>
+    <script src="../scripts/global.js"></script>
+</body>
+</html>
