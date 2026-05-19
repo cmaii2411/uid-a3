@@ -228,6 +228,12 @@
     background-color: var(--button-color);
     border-radius: var(--pic-border-radius);
     padding: 1rem;
+    transition: all 0.2s ease;
+}
+
+.rec-card:hover {
+    transform: scale(1.02);
+    box-shadow: 1px 4px 4px 0 rgba(198, 177, 161, 0.62);
 }
 
 .rec-card > img {

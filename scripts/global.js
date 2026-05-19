@@ -28,6 +28,7 @@ const navHTML = `
 `;
 
 document.getElementById('nav-placeholder').innerHTML = navHTML;
+document.getElementById('cart').addEventListener('click', openCart);
 
 /* SEARCH — navigate to productlist with ?q= on Enter or icon click */
 const searchInput = document.getElementById('search');
