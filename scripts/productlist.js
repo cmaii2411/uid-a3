@@ -18,7 +18,7 @@ const pageHeader = document.getElementById('page-header');
 
 if (searchQ) {
     pageHeader.innerHTML = `
-        <div class=”search-header anim-load-up”>
+        <div class="search-header">
             Results for “<span>${searchQ}</span>”
             <img class="deco-paw-1" src="${basePath}assets/images/pink-paw.png">
             <img class="deco-paw-2" src="${basePath}assets/images/pink-paw.png">

@@ -1,0 +1,329 @@
+/* ===== HEADER ===== */
+
+/* bag icon — same dimensions as #cart in global.css */
+.checkout-bag {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+}
+
+/* SECURE CHECKOUT bar — inherits .categories font/color, just centers the single item */
+.checkout-secure-bar {
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.18);
+}
+
+/* ===== PAGE LAYOUT ===== */
+
+.checkout-page {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 72rem;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.checkout-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 0;
+}
+
+/* ===== PROGRESS BAR ===== */
+
+.checkout-progress {
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+.checkout-step {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    opacity: 0.5;
+}
+
+.checkout-step.active {
+    opacity: 1;
+}
+
+.checkout-step.active span {
+    color: var(--brand-color);
+    font-weight: 600;
+}
+
+.step-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+}
+
+.checkout-step span {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+}
+
+.checkout-step-line {
+    flex: 1;
+    height: 1px;
+    background: #000;
+    margin: 0 0.75rem;
+}
+
+/* ===== PANEL SHELL ===== */
+
+.checkout-panel {
+    background: #fff;
+    border: 1px solid var(--light-pink);
+    border-radius: var(--pic-border-radius);
+    padding: 0 1.5rem;
+}
+
+/* Step 1 uses .cart-page-items / .cart-page-item from cart.css */
+/* Override: remove the outer border so the panel border is the only border */
+.checkout-panel .cart-page-items {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+}
+
+/* ===== CONTINUE BUTTON ===== */
+
+.btn-continue {
+    display: block;
+    width: 100%;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    padding: 0.85rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06rem;
+    cursor: pointer;
+    margin: 1.25rem 0;
+    transition: box-shadow 0.2s ease;
+}
+
+.btn-continue:hover {
+    box-shadow: 0 4px 16px rgba(238, 105, 131, 0.4);
+}
+
+/* ===== STEP 2: DETAILS FORM ===== */
+
+.form-section {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--light-pink);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #443932;
+    margin-bottom: 0.75rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    margin-bottom: 0.65rem;
+}
+
+.form-grid:last-child {
+    margin-bottom: 0;
+}
+
+.form-grid.full {
+    grid-template-columns: 1fr;
+}
+
+.checkout-input,
+.checkout-select {
+    width: 100%;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--btn-border-radius);
+    padding: 0.6rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: #443932;
+    background: #fff;
+    outline: none;
+}
+
+.checkout-input::placeholder {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.checkout-select {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+/* ===== STEP 3: PAYMENT ===== */
+
+.payment-wrap {
+    padding: 1.25rem 0;
+}
+
+.express-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-bottom: 0.6rem;
+}
+
+.btn-apple-pay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    padding: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-apple-pay img {
+    width: 1.1rem;
+    filter: invert(1);
+}
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1rem 0;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.payment-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #443932;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.payment-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.payment-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.65rem;
+}
+
+.btn-pay-now {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    padding: 0.85rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+/* ===== ORDER SUMMARY ===== */
+
+.checkout-summary {
+    width: 19rem;
+    flex-shrink: 0;
+    background: var(--button-color);
+    border-radius: var(--pic-border-radius);
+    padding: 1.25rem 1.4rem;
+}
+
+.summary-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.04rem;
+    margin-bottom: 1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.45rem;
+}
+
+.summary-label {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: #443932;
+}
+
+.summary-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 0.75rem 0;
+}
+
+.summary-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-total-label {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #443932;
+}
+
+.summary-gst {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.4);
+    margin-top: 0.1rem;
+}
+
+.summary-total-amount {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #443932;
+}

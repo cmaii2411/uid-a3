@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krispet — Checkout</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/cart.css">
+    <link rel="stylesheet" href="../styles/checkout.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo 1.png" alt="Krispet">
+                    </a>
+                </div>
+                <div class="cart-and-searchbar">
+                    <a href="../pages/cart.html">
+                        <img class="checkout-bag" src="../assets/icons/fi-rr-shopping-bag.svg" alt="Cart">
+                    </a>
+                </div>
+            </div>
+            <div class="categories checkout-secure-bar">
+                <h2>SECURE CHECKOUT</h2>
+            </div>
+        </nav>
+    </header>
+
+    <main class="checkout-page">
+
+        <div class="checkout-left">
+
+            <nav class="checkout-progress">
+                <div class="checkout-step active" data-step="1">
+                    <img class="step-icon" src="../assets/icons/red-bag.svg" alt="">
+                    <span>Your Order</span>
+                </div>
+                <div class="checkout-step-line"></div>
+                <div class="checkout-step" data-step="2">
+                    <img class="step-icon" src="../assets/icons/user.svg" alt="">
+                    <span>Your Details</span>
+                </div>
+                <div class="checkout-step-line"></div>
+                <div class="checkout-step" data-step="3">
+                    <img class="step-icon" src="../assets/icons/credit.svg" alt="">
+                    <span>Payment</span>
+                </div>
+            </nav>
+
+            <div class="checkout-panel" id="checkout-panel"></div>
+
+        </div>
+
+        <aside class="checkout-summary">
+            <h2 class="summary-title">ORDER SUMMARY</h2>
+            <div class="summary-row">
+                <span id="summary-item-count" class="summary-label"></span>
+                <span id="summary-item-total" class="summary-label"></span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Delivery</span>
+                <span class="summary-label">Free</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-total-row">
+                <div>
+                    <p class="summary-total-label">Total</p>
+                    <p class="summary-gst">(Inclusive of GST)</p>
+                </div>
+                <span class="summary-total-amount" id="summary-total"></span>
+            </div>
+        </aside>
+
+    </main>
+
+    <script>const basePath = '../';</script>
+    <script src="../scripts/cart.js"></script>
+    <script src="../scripts/checkout.js"></script>
+</body>
+</html>
