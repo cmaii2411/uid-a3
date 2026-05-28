@@ -94,6 +94,9 @@ p {
     color: #000;
 }
 
+a {
+    text-decoration: none;
+}
 /* ===== NAV / HEADER ===== */
 
 nav {
@@ -214,7 +217,7 @@ nav {
 
 .btn-primary:hover {
     transform: scale(1.04);
-    box-shadow: 0 6px 20px rgba(238, 105, 131, 0.4);
+    box-shadow: 0 6px 10px rgba(238, 105, 131, 0.4);
 }
 
 /* ===== FOOTER ===== */
@@ -657,6 +660,13 @@ footer {
     font-weight: 700;
     letter-spacing: 0.05rem;
     cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.btn-checkout:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(238, 105, 131, 0.4);
+;
 }
 
 /* ===== ANIMATIONS ===== */

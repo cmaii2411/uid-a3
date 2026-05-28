@@ -1,13 +1,10 @@
 /* ===== HEADER ===== */
-
-/* bag icon — same dimensions as #cart in global.css */
 .checkout-bag {
     width: 2rem;
     height: 2rem;
     display: block;
 }
 
-/* SECURE CHECKOUT bar — inherits .categories font/color, just centers the single item */
 .checkout-secure-bar {
     justify-content: center;
     background: rgba(0, 0, 0, 0.18);

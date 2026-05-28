@@ -1,4 +1,5 @@
 let currentStep = 1;
+let customerData = {};
 
 const stepIcons = {
     1: { off: 'bag.svg',    on: 'red-bag.svg'    },
@@ -130,14 +131,25 @@ function renderStep2() {
                 <input class="checkout-input" placeholder="Apartment, suite, etc. (optional)">
             </div>
             <div class="form-grid">
-                <input class="checkout-input" placeholder="First name">
-                <input class="checkout-input" placeholder="Last name">
+                <input class="checkout-input" id="input-firstname" placeholder="First name">
+                <input class="checkout-input" id="input-lastname"  placeholder="Last name">
             </div>
         </div>
         <button class="btn-continue" id="btn-continue">CONTINUE</button>
     `;
 
-    panel.querySelector('#btn-continue').addEventListener('click', () => goToStep(3));
+    panel.querySelector('#btn-continue').addEventListener('click', () => {
+        customerData = {
+            email:     panel.querySelector('input[type="email"]').value.trim(),
+            phone:     panel.querySelector('input[type="tel"]').value.trim(),
+            firstName: panel.querySelector('#input-firstname').value.trim(),
+            lastName:  panel.querySelector('#input-lastname').value.trim(),
+            address:   panel.querySelectorAll('.checkout-input')[2].value.trim(),
+            suburb:    panel.querySelectorAll('.checkout-input')[3].value.trim(),
+            postcode:  panel.querySelectorAll('.checkout-input')[4].value.trim(),
+        };
+        goToStep(3);
+    });
 }
 
 /* ── Step 3: Payment ── */
@@ -159,10 +171,28 @@ function renderStep3() {
                     <input class="checkout-input" placeholder="CVV"        inputmode="numeric">
                     <input class="checkout-input" placeholder="Expiration" inputmode="numeric">
                 </div>
-                <button class="btn-pay-now">PAY NOW</button>
+                <button class="btn-pay-now" id="btn-pay-now">PAY NOW</button>
             </div>
         </div>
     `;
+
+    panel.querySelector('#btn-pay-now').addEventListener('click', () => {
+        const cart  = getCart();
+        const total = cart.reduce((t, c) => t + c.price * c.qty, 0);
+
+        const order = {
+            id:       `ORD-${Date.now()}`,
+            date:     new Date().toLocaleDateString('en-AU'),
+            customer: customerData,
+            items:    cart,
+            total:    total,
+        };
+
+        localStorage.setItem('lastOrder', JSON.stringify(order));
+        localStorage.removeItem('cart');
+
+        window.location.href = `${basePath}pages/thankyou.html`;
+    });
 }
 
 /* ── Init ── */
