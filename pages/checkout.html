@@ -11,30 +11,25 @@
 <body>
 
     <header>
-        <nav>
             <div class="header">
                 <div class="logo">
-                    <a href="../index.html">
-                        <img src="../assets/images/logo 1.png" alt="Krispet">
-                    </a>
+                    <img src="../assets/images/logo 1.png" alt="logo">
                 </div>
-                <div class="cart-and-searchbar">
-                    <a href="../pages/cart.html">
-                        <img class="checkout-bag" src="../assets/icons/fi-rr-shopping-bag.svg" alt="Cart">
-                    </a>
+                <div class="cart-wrapper">
+                    <img id="cart" src="../assets/icons/fi-rr-shopping-bag.svg" alt="cart">
+                    <div class="cart-counter"></div>
                 </div>
             </div>
             <div class="categories checkout-secure-bar">
                 <h2>SECURE CHECKOUT</h2>
-            </div>
-        </nav>
+            </div>  
     </header>
 
     <main class="checkout-page">
 
         <div class="checkout-left">
 
-            <nav class="checkout-progress">
+            <div class="checkout-progress">
                 <div class="checkout-step active" data-step="1">
                     <img class="step-icon" src="../assets/icons/red-bag.svg" alt="">
                     <span>Your Order</span>
@@ -49,7 +44,7 @@
                     <img class="step-icon" src="../assets/icons/credit.svg" alt="">
                     <span>Payment</span>
                 </div>
-            </nav>
+            </div>
 
             <div class="checkout-panel" id="checkout-panel"></div>
 
@@ -78,7 +73,9 @@
     </main>
 
     <script>const basePath = '../';</script>
+    <script src="../scripts/global.js"></script>
     <script src="../scripts/cart.js"></script>
     <script src="../scripts/checkout.js"></script>
+    
 </body>
 </html>

@@ -7,8 +7,10 @@
 
 .checkout-secure-bar {
     justify-content: center;
-    background: rgba(0, 0, 0, 0.18);
+    background: var(--brand-color);
 }
+
+
 
 /* ===== PAGE LAYOUT ===== */
 
@@ -166,7 +168,7 @@
 }
 
 .checkout-select {
-    color: rgba(0, 0, 0, 0.5);
+    color: 443932;
     cursor: pointer;
 }
 

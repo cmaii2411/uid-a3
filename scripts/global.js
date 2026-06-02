@@ -28,21 +28,24 @@ const navHTML = `
 `;
 
 const navPlaceholder = document.getElementById('nav-placeholder');
-navPlaceholder.innerHTML = navHTML;
-document.getElementById('cart').addEventListener('click', openCart);
+if (navPlaceholder) {
+    navPlaceholder.innerHTML = navHTML;
 
-const categories = document.querySelector('.categories');
+    const categories = document.querySelector('.categories');
 
-function updateNavPlaceholderHeight() {
-    navPlaceholder.style.height = navPlaceholder.querySelector('nav').offsetHeight + 'px';
+    function updateNavPlaceholderHeight() {
+        navPlaceholder.style.height = navPlaceholder.querySelector('nav').offsetHeight + 'px';
+    }
+    updateNavPlaceholderHeight();
+
+    window.addEventListener('scroll', () => {
+        categories.classList.toggle('hidden', window.scrollY > 10);
+    });
+
+    categories.addEventListener('transitionend', updateNavPlaceholderHeight);
 }
-updateNavPlaceholderHeight();
 
-window.addEventListener('scroll', () => {
-    categories.classList.toggle('hidden', window.scrollY > 10);
-});
-
-categories.addEventListener('transitionend', updateNavPlaceholderHeight);
+document.getElementById('cart').addEventListener('click', openCart);
 
 /* SEARCH — navigate to productlist with ?q= on Enter or icon click */
 const searchInput = document.getElementById('search');
