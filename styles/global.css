@@ -101,10 +101,16 @@ a {
 
 nav {
     background-color: var(--brand-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     background-color: var(--brand-color);
     padding: 0 2rem;
@@ -116,20 +122,16 @@ nav {
     aspect-ratio: 89/60;
 }
 
-.cart-and-searchbar {
+.cart-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 2rem;
-    margin-left: auto;
+    justify-content: flex-end;
+    position: relative;
 }
 
 #cart {
-    margin-right: 1rem;
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-    position: relative;
 }
 
 .search-wrapper {
@@ -175,6 +177,17 @@ nav {
     letter-spacing: 0.0375rem;
     color: #F5F5F5;
     border-top: 1px solid var(--light-pink);
+    max-height: 6rem;
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+}
+
+.categories.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    border-top: none;
 }
 
 .categories h2 {
@@ -298,8 +311,8 @@ footer {
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.8rem;
-    top: 9%;
-    right: 3%;
+    top: -0.4rem;
+    right: -0.4rem;
 }
 
 

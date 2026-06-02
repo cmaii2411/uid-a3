@@ -6,13 +6,13 @@ const navHTML = `
         <div class="logo">
             <img src="${basePath}assets/images/logo 1.png" alt="logo">
         </div>
-        <div class="cart-and-searchbar">
+        <div class="search-wrapper">
+            <input type="text" id="search" name="search" placeholder="Search Cat Climbing Wall">
+            <img src="${basePath}assets/icons/fi-rr-search-pink.svg" class="search-icon" alt="search">
+        </div>
+        <div class="cart-wrapper">
             <img id="cart" src="${basePath}assets/icons/fi-rr-shopping-bag.svg" alt="cart">
             <div class="cart-counter"></div>
-            <div class="search-wrapper">
-                <input type="text" id="search" name="search" placeholder="Search Cat Climbing Wall">
-                <img src="${basePath}assets/icons/fi-rr-search-pink.svg" class="search-icon" alt="search">
-            </div>
         </div>
     </div>
     <div class="categories">
@@ -27,8 +27,22 @@ const navHTML = `
 </nav>
 `;
 
-document.getElementById('nav-placeholder').innerHTML = navHTML;
+const navPlaceholder = document.getElementById('nav-placeholder');
+navPlaceholder.innerHTML = navHTML;
 document.getElementById('cart').addEventListener('click', openCart);
+
+const categories = document.querySelector('.categories');
+
+function updateNavPlaceholderHeight() {
+    navPlaceholder.style.height = navPlaceholder.querySelector('nav').offsetHeight + 'px';
+}
+updateNavPlaceholderHeight();
+
+window.addEventListener('scroll', () => {
+    categories.classList.toggle('hidden', window.scrollY > 10);
+});
+
+categories.addEventListener('transitionend', updateNavPlaceholderHeight);
 
 /* SEARCH — navigate to productlist with ?q= on Enter or icon click */
 const searchInput = document.getElementById('search');
