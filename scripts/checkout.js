@@ -195,7 +195,97 @@ function renderStep3() {
     });
 }
 
+/* ── Mobile: steps 2+3 combined ── */
+function renderMobileCombined() {
+    const cart  = getCart();
+    const total = cart.reduce((t, c) => t + c.price * c.qty, 0);
+    const qty   = cart.reduce((t, c) => t + c.qty, 0);
+    const panel = document.getElementById('checkout-panel');
+
+    panel.innerHTML = `
+        <div class="payment-wrap">
+            <p class="express-label">Express Checkout</p>
+            <button class="btn-apple-pay">
+                <img src="${basePath}assets/icons/apple.svg" alt="Apple"> Pay
+            </button>
+            <div class="or-divider">Or</div>
+        </div>
+        <div class="form-section">
+            <p class="form-section-title">Contact</p>
+            <div class="form-grid full">
+                <input class="checkout-input" type="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-section">
+            <p class="form-section-title">Delivery</p>
+            <div class="form-grid full">
+                <select class="checkout-select">
+                    <option>Country/Region — Australia</option>
+                    <option>New Zealand</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                </select>
+            </div>
+            <div class="form-grid full"><input class="checkout-input" id="input-firstname" placeholder="First name"></div>
+            <div class="form-grid full"><input class="checkout-input" id="input-lastname"  placeholder="Last name"></div>
+            <div class="form-grid full"><input class="checkout-input" placeholder="Address"></div>
+            <div class="form-grid full"><input class="checkout-input" placeholder="Apartment, suite, etc. (optional)"></div>
+            <div class="form-grid full"><input class="checkout-input" placeholder="Suburb"></div>
+            <div class="form-grid full">
+                <select class="checkout-select">
+                    <option value="">State/Territory — Victoria</option>
+                    <option>New South Wales</option>
+                    <option>Queensland</option>
+                    <option>Western Australia</option>
+                    <option>South Australia</option>
+                    <option>Tasmania</option>
+                    <option>ACT</option>
+                    <option>Northern Territory</option>
+                </select>
+            </div>
+            <div class="form-grid full"><input class="checkout-input" placeholder="Postcode"></div>
+            <div class="form-grid full"><input class="checkout-input" type="tel" placeholder="Phone"></div>
+        </div>
+        <div class="form-section">
+            <p class="form-section-title">Payment Details</p>
+            <div class="payment-fields">
+                <input class="checkout-input" placeholder="Name on Card">
+                <input class="checkout-input" placeholder="Card number" inputmode="numeric">
+                <div class="payment-row">
+                    <input class="checkout-input" placeholder="CVV"                    inputmode="numeric">
+                    <input class="checkout-input" placeholder="Expiration date (MM/YY)" inputmode="numeric">
+                </div>
+            </div>
+        </div>
+        <div class="mobile-total-row">
+            <div>
+                <p class="mobile-total-label">Total</p>
+                <p class="mobile-total-sub">${qty} item${qty !== 1 ? 's' : ''}</p>
+            </div>
+            <span class="mobile-total-amount">$${total.toLocaleString()}.00 AUD</span>
+        </div>
+        <button class="btn-pay-now" id="btn-pay-now">PAY NOW</button>
+    `;
+
+    panel.querySelector('#btn-pay-now').addEventListener('click', () => {
+        const order = {
+            id:    `ORD-${Date.now()}`,
+            date:  new Date().toLocaleDateString('en-AU'),
+            items: cart,
+            total,
+        };
+        localStorage.setItem('lastOrder', JSON.stringify(order));
+        localStorage.removeItem('cart');
+        window.location.href = `${basePath}pages/thankyou.html`;
+    });
+}
+
 /* ── Init ── */
 updateProgress();
 renderOrderSummary();
-renderStep1();
+
+if (window.innerWidth <= 768) {
+    renderMobileCombined();
+} else {
+    renderStep1();
+}

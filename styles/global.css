@@ -833,27 +833,37 @@ footer {
         border-radius: 0;
     }
 
-    /* --- Cart drawer sizing, different size to desktop --- */
-    .cart-heading        { font-size: 22px; }
-    #cart-qty            { font-size: 13px; }
-    #cart-close img      { width: 14px; height: 14px; }
-    .cart-item-card       {padding: 1.5rem;}
-    .cart-item-card > img { width: 60px; height: 60px; }
-    .cart-item-name      { font-size: 13px; }
-    .cart-item-size      { font-size: 11px; }
-    .cart-item-price-row { font-size: 12px; }
-    .cart-qty-num        { font-size: 13px; }
-    .cart-upsell         {padding: 1.5rem;}
-    .cart-upsell > img   { width: 55px; height: 55px; }
-    .cart-upsell-label   { font-size: 11px; }
-    .cart-upsell-name    { font-size: 12px; }
-    .cart-upsell-price   { font-size: 14px; }
-    .btn-quick-add       { font-size: 11px; }
-    .cart-view-full      { font-size: 12px; }
-    .cart-coupon-label   { font-size: 12px; }
-    .cart-coupon-row input { font-size: 12px; }
-    .btn-apply           { font-size: 12px; }
-    .btn-checkout        { font-size: 14px; padding: 1rem 1.5rem; }
+    /* --- Cart drawer sizing (rem at 9px base = px/9) --- */
+    .cart-heading         { font-size: 2.44rem; }
+    #cart-drawer          {gap: 2rem;}
+    #cart-qty             { font-size: 1.44rem; }
+    #cart-close img       { width: 1.56rem; height: 1.56rem; }
+    .cart-item-card       { padding: 1.5rem; }
+    .cart-item-card > img { width: 6.67rem; height: 6.67rem; }
+    .cart-item-name       { font-size: 1.44rem; }
+    .cart-item-size       { font-size: 1.22rem; }
+    .cart-item-price-row  { font-size: 1.33rem; }
+    .cart-qty-num         { font-size: 1.44rem; }
+    .cart-upsell          { padding: 1.5rem; margin-bottom: 2rem;}
+    .cart-upsell > img    { width: 6.11rem; height: 6.11rem; }
+    .cart-upsell-label    { font-size: 1.22rem; }
+    .cart-upsell-name     { font-size: 1.33rem; }
+    .cart-upsell-price    { font-size: 1.56rem; }
+    .btn-quick-add        { font-size: 1.22rem; padding: 1rem 1.5rem;}
+    .cart-view-full       { display: none; }
+    .cart-coupon-label    { font-size: 1.33rem; }
+    .cart-coupon-row input { font-size: 1.33rem; }
+    .btn-apply            { font-size: 1.33rem; }
+    .btn-checkout         { font-size: 1.56rem; padding: 1rem 1.5rem; }
+    .cart-item-delete img {opacity: 1; width: 2rem; height: 2rem;}
+    .cart-item-card        {gap: 1.5rem;}
+    .cart-item-info        {gap: 1rem;}
+    .cart-qty-control      {gap: 1.5rem;}
+
+    .cart-footer {
+        gap: 2rem;
+        padding-bottom: 2rem;
+    }
 
     /* --- Nav layout --- */
     .hamburger,

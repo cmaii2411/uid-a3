@@ -301,7 +301,7 @@
     padding: 1rem 0 1rem 0.5rem;
     cursor: pointer;
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #000;
     user-select: none;
     font-weight: 600;
@@ -447,10 +447,6 @@
 
     .product-right-panel {
         width: 100%;
-    }
-
-    .product-name {
-        font-size: 1.5rem;
     }
 
     .product-bottom {

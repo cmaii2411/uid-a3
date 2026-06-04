@@ -326,3 +326,77 @@
     font-weight: 700;
     color: #443932;
 }
+
+/* ===== MOBILE TOTAL ROW ===== */
+
+.mobile-total-row {
+    display: none;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+    .checkout-progress { display: none; }
+
+    .checkout-page {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .checkout-summary {
+        width: 100%;
+        order: -1;
+    }
+
+    .checkout-left {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-title {
+        font-size: 1.5rem;
+    }
+
+    .mobile-total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0 0.5rem;
+        border-top: 1px solid var(--light-pink);
+        margin-top: 0.5rem;
+    }
+
+    .mobile-total-label {
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .mobile-total-sub {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        color: rgba(0,0,0,0.4);
+        margin-top: 0.15rem;
+    }
+
+    .mobile-total-amount {
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .form-section {
+        border-bottom: none;
+    }
+
+    .checkout-panel {
+        padding-bottom: 2rem;
+    }
+}
