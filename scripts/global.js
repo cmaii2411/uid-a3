@@ -4,7 +4,7 @@ const navHTML = `
 <nav>
     <div class="header">
         <div class="logo">
-            <img src="${basePath}assets/images/logo 1.png" alt="logo">
+            <a href="${basePath}index.html"><img src="${basePath}assets/images/logo 1.png" alt="logo"></a>
         </div>
         <div class="search-wrapper">
             <input type="text" id="search" name="search" placeholder="Search Cat Climbing Wall">
@@ -16,7 +16,7 @@ const navHTML = `
         </div>
     </div>
     <div class="categories">
-        <h2>CAT WALLS</h2>
+        <a href="${basePath}pages/productlist.html"><h2>CAT WALLS</h2></a>
         <h2>STAIRCASE</h2>
         <h2>RAISED FEEDER</h2>
         <h2>CURVYNEST</h2>
@@ -112,10 +112,10 @@ const panelHTML = `
                     <button class="btn-apply">APPLY</button>
                 </div>
             </div>
-            <button class="btn-checkout">
+            <a href="${basePath}pages/checkout.html" class="btn-checkout">
                 <span>CHECKOUT</span>
                 <span id="cart-total"></span>
-            </button>
+            </a>
         </div>
     </div>
 `;

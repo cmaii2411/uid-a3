@@ -122,3 +122,18 @@ addToCartBtn.addEventListener('click', () => {
     addToCartBtn.textContent = 'ADDED!';
     setTimeout(() => { addToCartBtn.textContent = 'ADD TO CART'; }, 1500);
 });
+
+/* ===== COLOR SUGGESTIONS ===== */
+
+document.getElementById('color-suggestions').innerHTML = products
+    .filter(p => p.id !== product.id)
+    .map(p => `
+        <div class="color-card">
+            <img src="${basePath}assets/images/${p.images[0]}" alt="${p.name}">
+            <div class="color-card-info">
+                <span class="color-card-name">${p.name}</span>
+                <span class="color-card-price">$${p.price.toLocaleString()}.00</span>
+            </div>
+            <button class="btn-view" onclick="location.href='${basePath}pages/product.html?id=${p.id}'">VIEW PRODUCT</button>
+        </div>
+    `).join('');
