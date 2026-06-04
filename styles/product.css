@@ -144,7 +144,7 @@
 
 .product-label {
     font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.1rem;
     color: var(--brand-color);
@@ -162,7 +162,7 @@
     background: transparent;
     color: var(--brand-color);
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     padding: 0.4rem 1rem;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
@@ -465,5 +465,47 @@
     .product-colors {
         width: 100%;
         height: auto;
+    }
+    .rec-details h3 {
+        font-size: 1.5rem;
+    }
+
+    .rec-details p {
+        font-size: 1.25rem;
+    }
+    .accordion-body p {
+        font-size: 1rem;
+    }
+
+    summary span {
+        font-size: 1rem;
+    }
+
+    .rec-details .btn-primary {
+        font-size: 1.25rem;
+        width: 12rem;
+        height: auto;
+        padding: 1rem 1.5rem;
+    }
+
+    .rec-details {
+        align-items: flex-end;
+        text-align: right;
+        gap: 2rem;
+        width: auto;
+        margin-left: 0;
+    }
+
+    .rec-card {
+        padding: 2rem;
+    }
+
+    .rec-card > img {
+        width: 10rem;
+        height: 10rem;
+        object-fit: cover;
+        border-radius: var(--pic-border-radius);
+        flex-shrink: 0;
+        border: 0.2rem solid var(--primary-color);
     }
 }
