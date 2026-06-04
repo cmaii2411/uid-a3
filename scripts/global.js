@@ -3,14 +3,22 @@
 const navHTML = `
 <nav>
     <div class="header">
-        <div class="logo">
-            <a href="${basePath}index.html"><img src="${basePath}assets/images/logo 1.png" alt="logo"></a>
+        <div class="nav-left">
+            <button id="hamburger" class="hamburger">
+                <img src="${basePath}assets/icons/fi-rr-menu-burger.svg" alt="menu">
+            </button>
+            <div class="logo">
+                <a href="${basePath}index.html"><img src="${basePath}assets/images/logo 1.png" alt="logo"></a>
+            </div>
         </div>
         <div class="search-wrapper">
             <input type="text" id="search" name="search" placeholder="Search Cat Climbing Wall">
             <img src="${basePath}assets/icons/fi-rr-search-pink.svg" class="search-icon" alt="search">
         </div>
         <div class="cart-wrapper">
+            <button class="mobile-search-btn" id="mobile-search-btn">
+                <img src="${basePath}assets/icons/fi-rr-search.svg" alt="search">
+            </button>
             <img id="cart" src="${basePath}assets/icons/fi-rr-shopping-bag.svg" alt="cart">
             <div class="cart-counter"></div>
         </div>
@@ -27,9 +35,49 @@ const navHTML = `
 </nav>
 `;
 
+const drawerHTML = `
+<div id="mobile-drawer">
+    <button id="drawer-close">
+        <img src="${basePath}assets/icons/fi-rr-cross.svg" alt="close">
+    </button>
+    <div class="drawer-links">
+        <a href="${basePath}pages/productlist.html" class="drawer-link">Cat Walls</a>
+        <a href="#" class="drawer-link">Scratch Board</a>
+        <a href="#" class="drawer-link">Cat Staircase</a>
+        <a href="#" class="drawer-link">Curvynest</a>
+        <a href="#" class="drawer-link">Cat Tail Teaser</a>
+        <a href="#" class="drawer-link">Cat Raised Feeder</a>
+        <a href="#" class="drawer-link">Specials</a>
+        <a href="#" class="drawer-link">About Us</a>
+    </div>
+</div>
+<div id="drawer-overlay"></div>
+`;
+
+document.body.insertAdjacentHTML('afterbegin', drawerHTML);
+
+function openDrawer() {
+    document.getElementById('mobile-drawer').classList.add('open');
+    document.getElementById('drawer-overlay').classList.add('open');
+}
+
+function closeDrawer() {
+    document.getElementById('mobile-drawer').classList.remove('open');
+    document.getElementById('drawer-overlay').classList.remove('open');
+}
+
+document.getElementById('drawer-close').addEventListener('click', closeDrawer);
+document.getElementById('drawer-overlay').addEventListener('click', closeDrawer);
+
 const navPlaceholder = document.getElementById('nav-placeholder');
 if (navPlaceholder) {
     navPlaceholder.innerHTML = navHTML;
+
+    document.getElementById('hamburger').addEventListener('click', openDrawer);
+
+    document.getElementById('mobile-search-btn').addEventListener('click', () => {
+        document.querySelector('nav').classList.toggle('search-open');
+    });
 
     const categories = document.querySelector('.categories');
 

@@ -244,7 +244,6 @@
 
 .commitment h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
     font-weight: 700;
     color: #443932;
     text-align: center;
@@ -366,7 +365,6 @@
 
 .review > h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
     font-weight: 700;
     color: #443932;
     text-align: center;
@@ -495,4 +493,105 @@
     top: -30%;
     right: 200%;
     opacity: 60%;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+    /* --- Hero --- */
+    .hero {
+        flex-direction: row;
+        gap: 1rem;
+        padding-left: 0.8rem;
+    }
+
+    .hero-text {
+        width: 100%;
+        margin-left: 0;
+        gap: 1rem;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-height: 70vw;
+        object-fit: cover;
+        margin-left: 0;
+    }
+
+    .deco-footprint,
+    .deco-paw {
+        display: none;
+    }
+
+    /* --- Mission --- */
+    .mission {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    .mission-big-paw {
+        width: 8rem;
+        height: 8rem;
+        align-self: center;
+    }
+
+    .mission-deco-paw--1,
+    .mission-deco-paw--2,
+    .mission-deco-paw--3 {
+        display: none;
+    }
+
+    .mission article {
+        padding: 1rem;
+    }
+
+    /* --- Collections --- */
+    .collections {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .collections-deco {
+        top: -5rem;
+        scale: 0.6;
+        right: -6rem;
+    }
+
+    .collections-heading {
+        border-bottom: 1.25px solid #000;
+        padding-bottom: 0.5rem;
+    }
+
+
+    /* --- Carousel --- */
+    .carousel-track {
+        width: min(30rem, 82vw);
+    }
+
+    .carousel-slide.prev {
+        transform: translateX(-65%) translateZ(-60px) rotateY(10deg) scale(0.85);
+    }
+
+    .carousel-slide.next {
+        transform: translateX(65%) translateZ(-60px) rotateY(-10deg) scale(0.85);
+    }
+
+    /* --- Reviews --- */
+    .review-card {
+        flex: 0 0 82%;
+    }
+    .review {
+        padding: 2.5rem 0 2.5rem;
+    }
+
+    .review-viewport {
+        padding: 0;
+    }
+
+    .review-autoslide {
+        gap: 3.25rem;
+    }
+
 }
