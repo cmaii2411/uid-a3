@@ -14,6 +14,7 @@ const navHTML = `
         <div class="search-wrapper">
             <input type="text" id="search" name="search" placeholder="Search Cat Climbing Wall">
             <img src="${basePath}assets/icons/fi-rr-search-pink.svg" class="search-icon" alt="search">
+            <img src="${basePath}assets/icons/fi-rr-cross.svg" class="search-close-icon" alt="close">
         </div>
         <div class="cart-wrapper">
             <button class="mobile-search-btn" id="mobile-search-btn">
@@ -77,6 +78,10 @@ if (navPlaceholder) {
 
     document.getElementById('mobile-search-btn').addEventListener('click', () => {
         document.querySelector('nav').classList.toggle('search-open');
+    });
+
+    document.querySelector('.search-close-icon').addEventListener('click', () => {
+        document.querySelector('nav').classList.remove('search-open');
     });
 
     const categories = document.querySelector('.categories');

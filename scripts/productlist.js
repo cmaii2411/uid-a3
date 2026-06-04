@@ -106,3 +106,22 @@ document.querySelectorAll('.filter-clear').forEach(btn => {
         applyColorFilter();
     });
 });
+
+/* ===== MOBILE FILTER DRAWER ===== */
+
+const filterToggle = document.getElementById('filter-toggle');
+const filterPanel  = document.querySelector('.filter-panel');
+const filterOverlay = document.getElementById('filter-overlay');
+
+function openFilter() {
+    filterPanel.classList.add('open');
+    filterOverlay.classList.add('open');
+}
+
+function closeFilter() {
+    filterPanel.classList.remove('open');
+    filterOverlay.classList.remove('open');
+}
+
+if (filterToggle) filterToggle.addEventListener('click', openFilter);
+if (filterOverlay) filterOverlay.addEventListener('click', closeFilter);
