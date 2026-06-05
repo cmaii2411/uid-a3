@@ -85,7 +85,6 @@
 }
 
 /* Step 1 uses .cart-page-items / .cart-page-item from cart.css */
-/* Override: remove the outer border so the panel border is the only border */
 .checkout-panel .cart-page-items {
     border: none;
     border-radius: 0;
