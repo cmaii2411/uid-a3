@@ -205,8 +205,19 @@
 #qty-display {
     font-family: var(--font-body);
     font-size: 1rem;
-    min-width: 1rem;
+    width: 2.5rem;
     text-align: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+#qty-display::-webkit-outer-spin-button,
+#qty-display::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* ===== ADD TO CART BUTTON ===== */

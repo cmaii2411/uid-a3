@@ -90,16 +90,24 @@ detailEl.querySelectorAll('.size-btn:not(.unavailable)').forEach(btn => {
 
 /* ===== QUANTITY ===== */
 
+const qtyDisplay = document.getElementById('qty-display');
+
 document.getElementById('qty-minus').addEventListener('click', () => {
-    if (qty > 1) {
-        qty--;
-        document.getElementById('qty-display').textContent = qty;
-    }
+    if (qty > 1) { qty--; qtyDisplay.value = qty; }
 });
 
 document.getElementById('qty-plus').addEventListener('click', () => {
-    qty++;
-    document.getElementById('qty-display').textContent = qty;
+    qty++; qtyDisplay.value = qty;
+});
+
+qtyDisplay.addEventListener('input', () => {
+    const val = parseInt(qtyDisplay.value);
+    if (!isNaN(val) && val >= 1) qty = val;
+});
+
+qtyDisplay.addEventListener('blur', () => {
+    const val = parseInt(qtyDisplay.value);
+    if (isNaN(val) || val < 1) { qty = 1; qtyDisplay.value = 1; }
 });
 
 /* ===== ADD TO CART ===== */

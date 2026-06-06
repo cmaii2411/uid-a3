@@ -14,9 +14,9 @@
     height: 5rem;
     margin: 2rem;
     font-family: var(--font-heading);
-    font-color: #000;
+    color: #000;
     font-weight: 600;
-    line-height: 1.4375rem; /* 47.917% */
+    line-height: 1.4375rem;
     letter-spacing: 0.09rem;
     justify-self: center;
     padding: var(--main-padding);
