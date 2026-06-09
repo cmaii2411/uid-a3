@@ -29,6 +29,29 @@ function renderOrderSummary() {
         `$${totalPrice.toLocaleString()}.00`;
 }
 
+/* ── Validation ── */
+function validatePanel(panel) {
+    let valid = true;
+    panel.querySelectorAll('[data-required]').forEach(el => {
+        el.classList.remove('field-error');
+        const val = el.value.trim();
+        let ok = !!val;
+        if (ok && el.dataset.required === 'email') {
+            ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+        }
+        if (!ok) { el.classList.add('field-error'); valid = false; }
+    });
+    return valid;
+}
+
+function showFormError(panel, msg) {
+    panel.querySelector('.form-error-msg')?.remove();
+    const el = document.createElement('p');
+    el.className = 'form-error-msg';
+    el.textContent = msg;
+    panel.querySelector('.btn-continue, .btn-pay-now').before(el);
+}
+
 function goToStep(n) {
     currentStep = n;
     updateProgress();
@@ -95,7 +118,7 @@ function renderStep2() {
         <div class="form-section">
             <p class="form-section-title">Contact</p>
             <div class="form-grid">
-                <input class="checkout-input" type="email" placeholder="Email">
+                <input class="checkout-input" type="email" placeholder="Email *" data-required="email">
                 <input class="checkout-input" type="tel"   placeholder="Phone">
             </div>
         </div>
@@ -110,13 +133,13 @@ function renderStep2() {
                 </select>
             </div>
             <div class="form-grid">
-                <input class="checkout-input" placeholder="Address">
-                <input class="checkout-input" placeholder="Suburb">
+                <input class="checkout-input" placeholder="Address *" data-required>
+                <input class="checkout-input" placeholder="Suburb *"  data-required>
             </div>
             <div class="form-grid">
-                <input class="checkout-input" placeholder="Postcode">
-                <select class="checkout-select">
-                    <option value="">State / Territory</option>
+                <input class="checkout-input" placeholder="Postcode *" data-required>
+                <select class="checkout-select" data-required>
+                    <option value="">State / Territory *</option>
                     <option>Victoria</option>
                     <option>New South Wales</option>
                     <option>Queensland</option>
@@ -139,6 +162,10 @@ function renderStep2() {
     `;
 
     panel.querySelector('#btn-continue').addEventListener('click', () => {
+        if (!validatePanel(panel)) {
+            showFormError(panel, 'Please fill in all required fields.');
+            return;
+        }
         customerData = {
             email:     panel.querySelector('input[type="email"]').value.trim(),
             phone:     panel.querySelector('input[type="tel"]').value.trim(),
@@ -166,10 +193,10 @@ function renderStep3() {
             <p class="payment-title">Payment Details</p>
             <div class="payment-fields">
                 <input class="checkout-input" placeholder="Name on Card">
-                <input class="checkout-input" placeholder="Card Number" inputmode="numeric">
+                <input class="checkout-input" placeholder="Card Number *" data-required inputmode="numeric">
                 <div class="payment-row">
-                    <input class="checkout-input" placeholder="CVV"        inputmode="numeric">
-                    <input class="checkout-input" placeholder="Expiration" inputmode="numeric">
+                    <input class="checkout-input" placeholder="CVV *"              data-required inputmode="numeric">
+                    <input class="checkout-input" placeholder="Expiration (MM/YY) *" data-required inputmode="numeric">
                 </div>
                 <button class="btn-pay-now" id="btn-pay-now">PAY NOW</button>
             </div>
@@ -177,6 +204,10 @@ function renderStep3() {
     `;
 
     panel.querySelector('#btn-pay-now').addEventListener('click', () => {
+        if (!validatePanel(panel)) {
+            showFormError(panel, 'Please fill in all required fields.');
+            return;
+        }
         const cart  = getCart();
         const total = cart.reduce((t, c) => t + c.price * c.qty, 0);
 
@@ -213,14 +244,14 @@ function renderMobileCombined() {
         <div class="form-section">
             <p class="form-section-title">Contact</p>
             <div class="form-grid full">
-                <input class="checkout-input" type="email" placeholder="Email">
+                <input class="checkout-input" type="email" placeholder="Email *" data-required="email">
             </div>
         </div>
         <div class="form-section">
             <p class="form-section-title">Delivery</p>
             <div class="form-grid full">
                 <select class="checkout-select">
-                    <option>Country/Region — Australia</option>
+                    <option>Australia</option>
                     <option>New Zealand</option>
                     <option>United States</option>
                     <option>United Kingdom</option>
@@ -228,12 +259,13 @@ function renderMobileCombined() {
             </div>
             <div class="form-grid full"><input class="checkout-input" id="input-firstname" placeholder="First name"></div>
             <div class="form-grid full"><input class="checkout-input" id="input-lastname"  placeholder="Last name"></div>
-            <div class="form-grid full"><input class="checkout-input" placeholder="Address"></div>
+            <div class="form-grid full"><input class="checkout-input" placeholder="Address *" data-required></div>
             <div class="form-grid full"><input class="checkout-input" placeholder="Apartment, suite, etc. (optional)"></div>
-            <div class="form-grid full"><input class="checkout-input" placeholder="Suburb"></div>
+            <div class="form-grid full"><input class="checkout-input" placeholder="Suburb *" data-required></div>
             <div class="form-grid full">
-                <select class="checkout-select">
-                    <option value="">State/Territory — Victoria</option>
+                <select class="checkout-select" data-required>
+                    <option value="">State / Territory *</option>
+                    <option>Victoria</option>
                     <option>New South Wales</option>
                     <option>Queensland</option>
                     <option>Western Australia</option>
@@ -243,17 +275,17 @@ function renderMobileCombined() {
                     <option>Northern Territory</option>
                 </select>
             </div>
-            <div class="form-grid full"><input class="checkout-input" placeholder="Postcode"></div>
+            <div class="form-grid full"><input class="checkout-input" placeholder="Postcode *" data-required></div>
             <div class="form-grid full"><input class="checkout-input" type="tel" placeholder="Phone"></div>
         </div>
         <div class="form-section">
             <p class="form-section-title">Payment Details</p>
             <div class="payment-fields">
                 <input class="checkout-input" placeholder="Name on Card">
-                <input class="checkout-input" placeholder="Card number" inputmode="numeric">
+                <input class="checkout-input" placeholder="Card number *" data-required inputmode="numeric">
                 <div class="payment-row">
-                    <input class="checkout-input" placeholder="CVV"                    inputmode="numeric">
-                    <input class="checkout-input" placeholder="Expiration date (MM/YY)" inputmode="numeric">
+                    <input class="checkout-input" placeholder="CVV *"               data-required inputmode="numeric">
+                    <input class="checkout-input" placeholder="Expiration (MM/YY) *" data-required inputmode="numeric">
                 </div>
             </div>
         </div>
@@ -268,6 +300,10 @@ function renderMobileCombined() {
     `;
 
     panel.querySelector('#btn-pay-now').addEventListener('click', () => {
+        if (!validatePanel(panel)) {
+            showFormError(panel, 'Please fill in all required fields.');
+            return;
+        }
         const order = {
             id:    `ORD-${Date.now()}`,
             date:  new Date().toLocaleDateString('en-AU'),

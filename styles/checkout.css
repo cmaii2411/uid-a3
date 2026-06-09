@@ -166,6 +166,19 @@
     color: rgba(0, 0, 0, 0.35);
 }
 
+.checkout-input.field-error,
+.checkout-select.field-error {
+    border-color: var(--brand-color);
+    background-color: rgba(133, 14, 53, 0.04);
+}
+
+.form-error-msg {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--brand-color);
+    margin: 0.5rem 0 0;
+}
+
 .checkout-select {
     color: 443932;
     cursor: pointer;
